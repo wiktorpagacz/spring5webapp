@@ -6,6 +6,7 @@ import java.util.Set;
 
 @Entity
 public class Author {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -14,7 +15,7 @@ public class Author {
     private String lastName;
 
     @ManyToMany(mappedBy = "authors")
-    private Set<Book> book = new HashSet<>();
+    private Set<Book> books = new HashSet<>();
 
     public Author() {
     }
@@ -49,11 +50,11 @@ public class Author {
     }
 
     public Set<Book> getBook() {
-        return book;
+        return books;
     }
 
-    public void setBook(Set<Book> book) {
-        this.book = book;
+    public void setBook(Set<Book> books) {
+        this.books = books;
     }
 
     @Override
@@ -62,7 +63,7 @@ public class Author {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", book=" + book +
+                ", books=" + books +
                 '}';
     }
 
